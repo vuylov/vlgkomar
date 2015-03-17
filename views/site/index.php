@@ -1,51 +1,32 @@
 <?php
 /* @var $this yii\web\View */
+use yii\helpers\Html;
+use app\assets\SliderAsset;
+use yii\bootstrap\Carousel;
+SliderAsset::register($this);
+
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
+    <div class="fill bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 alpha-white">
+                    <h3>ОБЩИЙ ПРИНЦИП работы всех систем "MOSQUITO KILLING"</h3>
+                    <ul class="product-features">
+                        <li>Системы привлекают комаров и мошку теплом, углекислым газом (CO2 - газ, который мы выдыхаем), специальным аттрактантом (не ядовит, имеет легкий запах грибов, кожи и т.д.), УФ-светом специального спектра.</li>
+                        <li>Комары и мошка засасываются вентилятором и уничтожаются внутри корпуса/</li>
+                        <li>Уничтоженные насекомые выбрасываются в специальный контейнер для последующей утилизации - можно применять на корм рыбкам, птицам и т.д.</li>
+                    </ul>
+                    <p>Эффективная площадт модификаций для участков: 6, 12, 20, 40 соток</p>
+                    <p>Эффективная площадь модификаций для внутренних площадей: 80 м2, 100 м2</p>
+                </div>
+                <div class="col-md-9" style="position: relative">
+                    <div class="mks1025">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </div>
