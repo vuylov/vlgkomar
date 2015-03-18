@@ -5,7 +5,7 @@ use app\assets\SliderAsset;
 use yii\bootstrap\Carousel;
 SliderAsset::register($this);
 
-$this->title = 'My Yii Application';
+$this->title = 'Системы и ловушки для уничтожения комаров и мошки';
 ?>
 <div class="site-index">
     <div id="slider">
@@ -29,7 +29,7 @@ $this->title = 'My Yii Application';
         <h1 class="text-center">Система для уничтожения комаров и мошки (Mosquito Killing System) Москито Киллер</h1>
         <div class="seper center-block"></div>
         <p class="text-center">
-            Линейка новых систем по уничятожениб комаров "Москито Киллер" создана в соответствии с Европейскими требованиями по экологии и стандартами. Имеет сертификат защиты IP-64. Разработана для стран ЕС.
+            Линейка новых систем по уничтожению комаров "Москито Киллер" создана в соответствии с Европейскими требованиями по экологии и стандартами. Имеет сертификат защиты IP-64. Разработана для стран ЕС.
         </p>
     </div>
     <div class="row three-products">

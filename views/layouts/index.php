@@ -5,13 +5,5 @@ use yii\widgets\Breadcrumbs;?>
         <div class="wrap">
             <?= $content ?>
         </div>
-        <div class="stack-line">
-            <div class="container text-center">
-                Cистема для уничтожения комаров и мошки (Mosquito Killing System) Москито Киллер
-            </div>
-        </div>
-        <div>
-
-        </div>
     </div>
 <?php $this->endContent();?>
