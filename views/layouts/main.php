@@ -28,7 +28,7 @@ AppAsset::register($this);
             'brandLabel' => 'My Company',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar-fixed-top red',
+                'class' => 'navbar-fixed-top green',
             ],
         ]);
         echo Nav::widget([
