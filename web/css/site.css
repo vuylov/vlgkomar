@@ -150,3 +150,15 @@ div#slider{
 .three-products{
     background: #f2f2f2;;
 }
+.mosquito-features{
+    font-size: 1.2em;
+}
+.bold{
+    font-weight: bolder;
+}
+.product-image{
+    width: 75%;
+}
+.padding-bottom-10{
+    padding-bottom: 10px;
+}
