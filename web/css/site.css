@@ -11,6 +11,7 @@ a{
 .wrap {
     min-height: 100%;
     height: auto;
+    margin-top: 51px;
 }
 
 .wrap > .container {
@@ -18,10 +19,10 @@ a{
 }
 
 .footer {
-    height: 60px;
     border-top: 1px solid #ddd;
     padding-top: 20px;
     background-color: #2ECC40;
+    color: #fff;
 }
 
 .jumbotron {
@@ -161,4 +162,7 @@ div#slider{
 }
 .padding-bottom-10{
     padding-bottom: 10px;
+}
+.copyrights{
+    font-size: 0.8em;
 }

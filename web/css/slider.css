@@ -16,6 +16,12 @@
         padding-left: 0;
         padding-right: 0;
     }
+    .slide-caption{
+        font-size: 1.2px;
+    }
+    .slide-little{
+        font-size: 0.8em;
+    }
 }
 .carousel .item {
     width: 100%; /*slider width*/
@@ -45,4 +51,14 @@
     right: 0px;
     position: absolute;
     margin-right: 15px;
+}
+.carousel-caption{
+    bottom: auto;
+    top: 43%;
+}
+.slide-caption{
+    font-size: 3.1em;
+}
+.slide-little{
+    font-size: 2.1em;
 }

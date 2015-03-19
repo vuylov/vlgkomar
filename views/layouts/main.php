@@ -34,10 +34,10 @@ AppAsset::register($this);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Главная', 'url' => ['/site/index']],
-                ['label' => 'Каталог', 'url' => ['/site/about']],
-                ['label' => 'Заправка', 'url' => ['/site/about']],
-                ['label' => 'Контакты', 'url' => ['/site/contact']]
+                ['label' => 'Главная', 'url' => ['site/index']],
+                ['label' => 'Каталог', 'url' => ['site/catalog']],
+                ['label' => 'Заправка', 'url' => ['site/about']],
+                ['label' => 'Контакты', 'url' => ['site/contact']]
             ],
         ]);
         NavBar::end();
@@ -46,8 +46,21 @@ AppAsset::register($this);
     <?= $content ?>
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>        </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="pull-left">&copy; ООО «ТД СЕРВИC» <?= date('Y') ?></p>
+                    <div class="clearfix"></div>
+                    <p class="copyrights">Все права защищены и охраняются законом. Использование материалов сайта разрешено только с письменного разрешения ООО «ТД СЕРВИC». Информация, размещенная на сайте, не является публичной офертой. За дополнительной информацией обращайтесь по указанным телефонам</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="pull-right">
+                        <p>г.Волгоград ул. Командира Рудь, 1"А", офис 415 </p>
+                        <p>тел.: +7(8442) 65-00-85, +79023625794</p>
+                        <p><?= Html::a('www.volgakomarov.net', ['site/index']);?></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
     </footer>
 
 <?php $this->endBody() ?>

@@ -12,11 +12,11 @@ $this->title = 'Системы и ловушки для уничтожения �
         <?= Carousel::widget([
             'items' => [
                 [    'content'   => Html::img('@web/images/slides/slide1.jpg'),
-                    'caption'   => '<h2>Caption</h2><p>Знакомы летающие ребята?</p>'
+                    'caption'   => '<h2 class="slide-caption">Надоели комары и мошка?</h2><p class="slide-little">Мы знаем как Вам помочь</p>'
                 ],
                 [
                     'content'   => Html::img('@web/images/slides/slide2.jpg'),
-                    'caption'   => '<h2>Caption2</h2>'
+                    'caption'   => '<h2 class="slide-caption">Ловушки для уничтожения комаров и мошки</h2><p class="slide-little">Они для Вас сделают это лете еще прекраснее!</p>'
                 ]
             ],
             'controls' => [
