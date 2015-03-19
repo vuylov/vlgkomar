@@ -11,7 +11,6 @@ a{
 .wrap {
     min-height: 100%;
     height: auto;
-    margin-top: 51px;
 }
 
 .wrap > .container {
@@ -165,4 +164,10 @@ div#slider{
 }
 .copyrights{
     font-size: 0.8em;
+}
+.catalog-index{
+    margin-top: 5px;
+}
+.margin-top{
+    margin-top: 51px;
 }

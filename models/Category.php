@@ -45,11 +45,11 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'detail' => 'Detail',
-            'thumb' => 'Thumb',
-            'keywords' => 'Keywords',
-            'description' => 'Description',
+            'name' => 'Название',
+            'detail' => 'Подробно',
+            'thumb' => 'Изображение',
+            'keywords' => 'SEO ключевые слова',
+            'description' => 'SEO описание',
         ];
     }
 

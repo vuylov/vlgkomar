@@ -35,7 +35,7 @@ AppAsset::register($this);
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
                 ['label' => 'Главная', 'url' => ['site/index']],
-                ['label' => 'Каталог', 'url' => ['site/catalog']],
+                ['label' => 'Каталог', 'url' => ['category/index']],
                 ['label' => 'Заправка', 'url' => ['site/about']],
                 ['label' => 'Контакты', 'url' => ['site/contact']]
             ],
@@ -43,7 +43,9 @@ AppAsset::register($this);
         NavBar::end();
         ?>
     </header>
-    <?= $content ?>
+    <div class="margin-top">
+        <?= $content ?>
+    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">
