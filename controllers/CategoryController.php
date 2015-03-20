@@ -8,12 +8,15 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
  */
 class CategoryController extends Controller
 {
+    public $layout = 'section';
     public function behaviors()
     {
         return [
@@ -23,6 +26,14 @@ class CategoryController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'access'    => [
+                'class' => AccessControl::className(),
+                'only'  => ['update', 'delete', 'create'],
+                'rules' => [[
+                    'allow' => true,
+                    'roles' => ['@']
+                ]]
+            ]
         ];
     }
 
@@ -62,7 +73,17 @@ class CategoryController extends Controller
     {
         $model = new Category();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if($model->file){
+                $name = 'upload/'.Yii::$app->security->generateRandomString(16).'.'.$model->file->extension;
+                if($model->file->saveAs($name)){
+                    $model->thumb = $name;
+                }
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -81,7 +102,18 @@ class CategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if($model->file){
+                $model->deleteThumbFile();
+                $name = 'upload/'.Yii::$app->security->generateRandomString(16).'.'.$model->file->extension;
+                if($model->file->saveAs($name)){
+                    $model->thumb = $name;
+                }
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

@@ -18,6 +18,7 @@ use Yii;
  */
 class Category extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * @inheritdoc
      */
@@ -34,7 +35,8 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['detail', 'thumb', 'keywords', 'description'], 'string'],
-            [['name'], 'string', 'max' => 255]
+            [['name'], 'string', 'max' => 255],
+            [['file'], 'safe']
         ];
     }
 
@@ -59,5 +61,24 @@ class Category extends \yii\db\ActiveRecord
     public function getProducts()
     {
         return $this->hasMany(Product::className(), ['category_id' => 'id']);
+    }
+
+    public function beforeDelete()
+    {
+        if(parent::beforeDelete()){
+            $this->deleteThumbFile();
+            return true;
+        }
+        return false;
+    }
+
+    public function deleteThumbFile()
+    {
+        if($this->thumb){
+            $fp = Yii::getAlias('@webroot').'/'.$this->thumb;
+            if(file_exists($fp)){
+                unlink($fp);
+            }
+        }
     }
 }
