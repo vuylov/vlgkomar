@@ -47,8 +47,11 @@ class CategoryController extends Controller
             'query' => Category::find(),
         ]);
 
+        $categories = Category::find()->all();
+
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'dataProvider'  => $dataProvider,
+            'categories'      => $categories
         ]);
     }
 
