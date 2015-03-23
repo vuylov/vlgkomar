@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\helpers\VarDumper;
 
@@ -11,13 +12,30 @@ $this->title = 'Каталог';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-index">
+    <h1 class="text-center header"><?= Html::encode($this->title) ?></h1>
+    <div class="seper"></div>
+    <?php if(count($categories) > 0):?>
+        <ul class="product-categories">
+            <?php foreach($categories as $category):?>
+                <li>
+                    <a href="<?=Url::to(['category/view', 'id' => $category->id]); ?>">
+                        <?= Html::img($category->thumb, ['style' => 'float:left']);?>
+                        <div class="category-description">
+                            <h4><?= $category->name;?></h4>
+                            <div class="seper center-block"></div>
+                            <?php if($category->preview):?>
+                                <div class="category-description-detail">
+                                    <?= $category->preview;?>
+                                </div>
+                            <?php endif;?>
+                        </div>
 
-    <?php foreach($categories as $category):?>
-        <div class="stack-line">
-            <?= $category->name;?>
-        </div>
-    <?php endforeach;?>
-
+                    </a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+        <div class="clearfix"></div>
+    <?php endif;?>
 
     <?php if(!Yii::$app->user->isGuest):?>
         <?= GridView::widget([

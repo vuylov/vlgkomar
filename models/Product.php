@@ -23,6 +23,8 @@ use Yii;
  */
 class Product extends \yii\db\ActiveRecord
 {
+    public $thumbnail;
+    public $files;
     /**
      * @inheritdoc
      */
@@ -39,8 +41,9 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['category_id', 'name'], 'required'],
             [['category_id', 'order'], 'integer'],
-            [['detail', 'thumb', 'keywords', 'description'], 'string'],
-            [['name', 'radius', 'price'], 'string', 'max' => 255]
+            [['detail', 'thumb', 'keywords', 'description', 'preview'], 'string'],
+            [['name', 'radius', 'price'], 'string', 'max' => 255],
+            [['thumb', 'files'], 'safe']
         ];
     }
 
@@ -51,15 +54,18 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_id' => 'Category ID',
-            'name' => 'Name',
-            'detail' => 'Detail',
-            'thumb' => 'Thumb',
-            'radius' => 'Radius',
-            'price' => 'Price',
-            'order' => 'Order',
-            'keywords' => 'Keywords',
-            'description' => 'Description',
+            'category_id' => 'Категория',
+            'name' => 'Наименование',
+            'detail' => 'Описание',
+            'preview'   => 'Краткое описание',
+            'thumb' => 'Изображение продукта',
+            'radius' => 'Радиус действия',
+            'price' => 'Цена',
+            'order' => 'Порядок',
+            'keywords' => 'Ключевые слова',
+            'description' => 'SEO - описание',
+            'thumbnail'     => 'Изображение продукта',
+            'files'         => 'Файлы для загрузки'
         ];
     }
 
@@ -77,5 +83,36 @@ class Product extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
+    public function deleteThumbFile()
+    {
+        if($this->thumb){
+            $fp = Yii::getAlias('@webroot').'/'.$this->thumb;
+            if(file_exists($fp)){
+                unlink($fp);
+            }
+        }
+    }
+
+    public function deleteFiles()
+    {
+        $files = $this->getFiles()->all();
+        if($files){
+            foreach($files as $file){
+                $file->delete();
+            }
+        }
+    }
+
+    public function beforeDelete()
+    {
+        if(parent::beforeDelete()){
+            $this->deleteThumbFile();
+            $this->deleteFiles();
+
+            return true;
+        }
+        return false;
     }
 }

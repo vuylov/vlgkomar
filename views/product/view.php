@@ -2,43 +2,42 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\bootstrap\Tabs;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = $product->name;
 ?>
 <div class="product-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="text-center header"><?= Html::encode($this->title) ?></h1>
+    <div class="seper"></div>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'category_id',
-            'name',
-            'detail:ntext',
-            'thumb:ntext',
-            'radius',
-            'price',
-            'order',
-            'keywords:ntext',
-            'description:ntext',
-        ],
-    ]) ?>
-
+    <div class="row">
+        <div class="col-md-5">
+            <?= Html::img('@web/'.$product->thumb, ['class' => 'img-responsive center-block']);?>
+        </div>
+        <div class="col-md-7 three-products">
+            <div>
+                <?= $product->detail;?>
+            </div>
+            <?php $files = $product->getFiles()->all();?>
+            <?php if(count($files) > 0):?>
+                <div><b>Файлы для загрузки:</b></div>
+                <?php foreach($files as $file):?>
+                    <div><a href="<?= $file->name;?>"><?= $file->rawname;?></a> </div>
+                <?php endforeach;?>
+            <?php endif;?>
+        </div>
+    </div>
 </div>
+<?php if(!Yii::$app->user->isGuest):?>
+    <p class="pull-right">
+        <?= Html::a('Изменить', ['product/update', 'id' => $product->id], ['class' => 'btn btn-primary']) ?>
+    </p>
+<?php endif;?>
+<?php
+$this->registerMetaTag(['name' => 'keywords', 'content' => ($product->keywords)?$product->keywords:$product->name]);
+$this->registerMetaTag(['name' => 'description', 'content' => ($product->description)?$product->description: $product->name]);
+?>

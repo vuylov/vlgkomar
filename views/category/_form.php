@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use vova07\imperavi\Widget;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Category */
@@ -18,7 +19,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'detail')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'detail')->widget(Widget::className(),[
+        'settings' => [
+            'lang' => 'ru',
+            'minHeight' => 200,
+            'plugins' => [
+                'clips',
+                'fullscreen'
+            ]
+        ]
+    ]) ?>
 
     <?= $form->field($model, 'file')->fileInput();?>
 

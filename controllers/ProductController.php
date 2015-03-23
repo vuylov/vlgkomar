@@ -8,12 +8,16 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
+use yii\web\UploadedFile;
+use app\models\File;
 /**
  * ProductController implements the CRUD actions for Product model.
  */
 class ProductController extends Controller
 {
+    public $layout = 'section';
+
     public function behaviors()
     {
         return [
@@ -23,6 +27,14 @@ class ProductController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'access'    => [
+                'class' => AccessControl::className(),
+                'only'  => ['update', 'delete', 'create', 'view', 'index'],
+                'rules' => [[
+                    'allow' => true,
+                    'roles' => ['@']
+                ]]
+            ]
         ];
     }
 
@@ -49,7 +61,7 @@ class ProductController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'product' => $this->findModel($id),
         ]);
     }
 
@@ -62,7 +74,35 @@ class ProductController extends Controller
     {
         $model = new Product();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $thumb = UploadedFile::getInstance($model, 'thumbnail');
+
+            if($thumb){
+                $name = 'upload/'.Yii::$app->security->generateRandomString(16).'.'.$thumb->extension;
+                if($thumb->saveAs($name)){
+                    $model->thumb = $name;
+                }
+            }
+
+            $model->save();//save here for get id
+
+            $files  = UploadedFile::getInstances($model, 'files');
+            if($files){
+                foreach($files as $file){
+                    $f                  = new File();
+                    $f->product_id      = $model->id;
+                    $f->name            = Yii::$app->security->generateRandomString(16).'.'.$file->extension;
+                    $f->rawname         = $file->name;
+                    $f->path            = 'upload/'.$f->name;
+                    if($f->save()){
+                        $file->saveAs($f->path);
+                    }
+                    unset($f);
+                }
+            }
+
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -80,8 +120,35 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $thumb = UploadedFile::getInstance($model, 'thumbnail');
+
+            if($thumb){
+                $model->deleteThumbFile();
+                $name = 'upload/'.Yii::$app->security->generateRandomString(16).'.'.$thumb->extension;
+                if($thumb->saveAs($name)){
+                    $model->thumb = $name;
+                }
+            }
+
+            $files  = UploadedFile::getInstances($model, 'files');
+            if($files){
+                $model->deleteFiles();
+
+                foreach($files as $file){
+                    $f                  = new File();
+                    $f->product_id      = $model->id;
+                    $f->name            = Yii::$app->security->generateRandomString(16).'.'.$file->extension;
+                    $f->rawname         = $file->name;
+                    $f->path            = 'upload/'.$f->name;
+                    if($f->save()){
+                        $file->saveAs($f->path);
+                    }
+                    unset($f);
+                }
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

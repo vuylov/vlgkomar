@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Product;
 use Yii;
 use app\models\Category;
 use yii\data\ActiveDataProvider;
@@ -59,12 +60,31 @@ class CategoryController extends Controller
      * Displays a single Category model.
      * @param integer $id
      * @return mixed
+     * @throws \HttpException
      */
-    public function actionView($id)
+    public function actionView($id, $product = null)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        if($product === null && $id){
+
+            $category   = $this->findModel($id);
+            $products   = $category->getProducts()->orderBy('order')->all();
+
+            return $this->render('view', [
+                'category'     => $category,
+                'products'  => $products
+            ]);
+        }elseif($product && $id){
+
+            $category   = $this->findModel($id);
+            $product    = Product::find()->with(['files'])->where('id = :id', [':id' => $product])->one();
+
+            return $this->render('//product/view', [
+                'category'  => $category,
+                'product'   => $product
+            ]);
+        }else{
+            throw new \HttpException('Страница не найдена');
+        }
     }
 
     /**

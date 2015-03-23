@@ -55,6 +55,11 @@
 .carousel-caption{
     bottom: auto;
     top: 43%;
+    border: 5px #fff solid;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 55%;
+    margin: 0 auto;
 }
 .slide-caption{
     font-size: 3.1em;

@@ -125,12 +125,6 @@ div.stack-line{
 ul.product-features{
     padding: 5px;
 }
-.mks1025{
-    width: 200px;
-    height: 459px;
-    position: absolute;
-    top: 100px;
-}
 div#slider{
     margin-top: 51px;
     height: auto;
@@ -148,7 +142,7 @@ div#slider{
      color: #939393;
  }
 .three-products{
-    background: #f2f2f2;;
+    background: #f2f2f2;
 }
 .mosquito-features{
     font-size: 1.2em;
@@ -170,4 +164,55 @@ div#slider{
 }
 .margin-top{
     margin-top: 51px;
+}
+ul.product-categories{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+}
+ul.product-categories li {
+    float: left;
+    width: 49.11%;
+    height: 210px;
+    padding: 5px;
+    border: #ccc 1px solid;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+ul.product-categories li a{
+    display: block;
+    color: #000;
+}
+ul > li.active{
+    background-color: #fff;
+    color: #000;
+}
+ul > li.active a{
+    color: #000;
+}
+div.category-description{
+    margin-left: 200px;
+    text-align: center;
+    height: 170px;
+}
+div.category-description-detail{
+    font-size: 12px;
+    color: #939393;
+}
+.navbar{
+    border-radius: 0px;!important;
+}
+.header{
+    font-size: 30px;
+}
+.product-view a{
+    color: #337AB7;
+}
+.grey-with-padding{
+    margin: 10px 0px;
+    background: #f2f2f2;
+    padding: 10px;
 }

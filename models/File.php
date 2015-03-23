@@ -61,4 +61,19 @@ class File extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Product::className(), ['id' => 'product_id']);
     }
+
+
+    public function beforeDelete()
+    {
+        if(parent::beforeDelete()){
+            if($this->path){
+                $fp = Yii::getAlias('@webroot').'/'.$this->path;
+                if(file_exists($fp)){
+                    unlink($fp);
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }
