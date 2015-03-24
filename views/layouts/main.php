@@ -36,12 +36,18 @@ AppAsset::register($this);
             'items' => [
                 ['label' => 'Главная', 'url' => ['site/index']],
                 ['label' => 'Каталог', 'url' => ['category/index']],
+                ['label' => 'Контакты', 'url' => ['site/contact']],
+                ['label' => 'Услуги', 'url' => ['site/contact']],
                 ['label' => 'Заправка', 'url' => ['site/about']],
-                ['label' => 'Контакты', 'url' => ['site/contact']]
+
             ],
         ]);
         NavBar::end();
         ?>
+        <div class="header-phone">
+            <div><span class="glyphicon glyphicon-phone-alt"></span> +7(8442) 65-00-85</div>
+            <div><span class="glyphicon glyphicon-earphone"></span> +7 902 362 57 94</div>
+        </div>
     </header>
     <div class="margin-top">
         <?= $content ?>

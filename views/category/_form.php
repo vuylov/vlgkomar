@@ -30,6 +30,17 @@ use vova07\imperavi\Widget;
         ]
     ]) ?>
 
+    <?= $form->field($model, 'preview')->widget(Widget::className(),[
+        'settings' => [
+            'lang' => 'ru',
+            'minHeight' => 200,
+            'plugins' => [
+                'clips',
+                'fullscreen'
+            ]
+        ]
+    ]) ?>
+
     <?= $form->field($model, 'file')->fileInput();?>
 
     <?= $form->field($model, 'keywords')->textarea(['rows' => 6]) ?>

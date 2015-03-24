@@ -19,7 +19,7 @@ $this->title = 'Каталог';
             <?php foreach($categories as $category):?>
                 <li>
                     <a href="<?=Url::to(['category/view', 'id' => $category->id]); ?>">
-                        <?= Html::img($category->thumb, ['style' => 'float:left']);?>
+                        <div style="float: left"><?= Html::img($category->thumb, ['class' => 'img-responsive']);?></div>
                         <div class="category-description">
                             <h4><?= $category->name;?></h4>
                             <div class="seper center-block"></div>

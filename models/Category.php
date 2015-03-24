@@ -34,7 +34,7 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['detail', 'thumb', 'keywords', 'description'], 'string'],
+            [['detail', 'thumb', 'keywords', 'description', 'preview'], 'string'],
             [['name'], 'string', 'max' => 255],
             [['file'], 'safe']
         ];
@@ -52,6 +52,7 @@ class Category extends \yii\db\ActiveRecord
             'thumb' => 'Изображение',
             'keywords' => 'SEO ключевые слова',
             'description' => 'SEO описание',
+            'preview'       => 'Анонс'
         ];
     }
 

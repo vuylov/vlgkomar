@@ -17,6 +17,11 @@ $this->title = $product->name;
     <div class="row">
         <div class="col-md-5">
             <?= Html::img('@web/'.$product->thumb, ['class' => 'img-responsive center-block']);?>
+            <?php if($product->price):?>
+                <div class="text-center">
+                    <span class="product-price"><?= $product->price;?> р.</span>
+                </div>
+            <?php endif;?>
         </div>
         <div class="col-md-7 three-products">
             <div>

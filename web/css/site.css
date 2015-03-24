@@ -181,10 +181,12 @@ ul.product-categories li {
     margin: 5px;
     border-radius: 5px;
     text-align: center;
+    overflow: hidden;
 }
 ul.product-categories li a{
     display: block;
     color: #000;
+    text-decoration: none;
 }
 ul > li.active{
     background-color: #fff;
@@ -215,4 +217,20 @@ div.category-description-detail{
     margin: 10px 0px;
     background: #f2f2f2;
     padding: 10px;
+}
+.header-phone{
+    position: fixed;
+    z-index: 1050;
+    text-align: center;
+    left: 43%;
+    padding: 5px 0;
+    color: #fff;
+    font-size: 1.2em;
+}
+.product-price{
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #4fb92d;
+    padding: 5px;
+    border-radius: 3px;
 }
