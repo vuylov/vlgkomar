@@ -7,51 +7,36 @@ use yii\captcha\Captcha;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Контакты';
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
-
-    <div class="alert alert-success">
-        Thank you for contacting us. We will respond to you as soon as possible.
-    </div>
-
-    <p>
-        Note that if you turn on the Yii debugger, you should be able
-        to view the mail message on the mail panel of the debugger.
-        <?php if (Yii::$app->mailer->useFileTransport): ?>
-        Because the application is in development mode, the email is not sent but saved as
-        a file under <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>.
-        Please configure the <code>useFileTransport</code> property of the <code>mail</code>
-        application component to be false to enable email sending.
-        <?php endif; ?>
-    </p>
-
-    <?php else: ?>
-
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
-
+    <h1 class="header text-center"><?= Html::encode($this->title) ?></h1>
+    <div class="seper"></div>
     <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-                <?= $form->field($model, 'name') ?>
-                <?= $form->field($model, 'email') ?>
-                <?= $form->field($model, 'subject') ?>
-                <?= $form->field($model, 'body')->textArea(['rows' => 6]) ?>
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                </div>
-            <?php ActiveForm::end(); ?>
+        <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=Sy4zt0F1nKqi0xT4JnslmGsAba8GgkHi&height=450"></script>
+    </div>
+    <div class="row three-products">
+        <div class="garantee-text">
+            <div>Доставка по волгоградской области</div>
+            <div>Гарантия 12 месяцев.</div>
+        </div>
+        <div>Эффективность в течение 3-5 дней 70% гнуса погибает на территории действия. Нарушается популяция ведущая к 100% уничтожению мошки и комаров</div>
+        <div class="big-word">Без химии. Безопасно. Эффективно.</div>
+    </div>
+    <div class="row three-products contact-data">
+        <div class="col-md-4">
+            <div>ООО "ТД СЕРВИС"</div>
+            <div>Телефоны</div>
+            <div>8 902 3625794</div>
+            <div>8 960 8947002</div>
+            <div>8 927 5128743</div>
+            <div>8 961 0873243</div>
+        </div>
+        <div class="col-md-8">
+            <div>Телефон офиса 8 (8442) 65 00 85</div>
+            <div>Адрес 400080, ул. Командира Рудь дом 1 "А" оф. 415 (рядом с налоговой инспекцией Красноармейского района)</div>
+            <div><a href="/">WWW.VOLGAKOMAROV.NET</a></div>
         </div>
     </div>
-
-    <?php endif; ?>
 </div>

@@ -234,3 +234,21 @@ div.category-description-detail{
     padding: 5px;
     border-radius: 3px;
 }
+.big-word{
+    padding: 20px 0px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.garantee-text{
+    margin: 10px 0px;
+    padding: 5px 0px;
+    font-size: 1.5em;
+}
+.contact-data{
+    padding: 10px 0px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.contact-data a{
+    color: #337ab7;
+}

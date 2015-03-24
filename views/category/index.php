@@ -45,8 +45,8 @@ $this->title = 'Каталог';
 
                 'id',
                 'name',
-                'detail:ntext',
-                'thumb:ntext',
+                //'detail:ntext',
+                'thumb:image',
                 'keywords:ntext',
                 // 'description:ntext',
 
@@ -55,3 +55,7 @@ $this->title = 'Каталог';
         ]); ?>
     <?php endif;?>
 </div>
+<?php
+$this->registerMetaTag(['name' => 'keywords', 'content' => 'Каталог отпугивателей комаров, ловушек для мух и акссесуаров к ним: аттрактанты, газовые балоон']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'купить системы защиты от комаров, купить отпугиватели комаров и мух, средства от комаров, купить ловушки мух, купить средство от слепней']);
+?>

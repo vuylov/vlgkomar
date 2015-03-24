@@ -26,12 +26,6 @@ class SiteController extends Controller
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
         ];
     }
 
@@ -78,16 +72,8 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
+        $this->layout = 'section';
+        return $this->render('contact');
     }
 
     public function actionAbout()
@@ -98,5 +84,16 @@ class SiteController extends Controller
     public function actionCatalog()
     {
         return $this->render('catalog');
+    }
+
+    public function actionServices()
+    {
+        $this->layout = 'section';
+        return $this->render('services');
+    }
+    public function actionRefill()
+    {
+        $this->layout = 'section';
+        return $this->render('refill');
     }
 }

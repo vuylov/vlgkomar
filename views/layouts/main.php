@@ -37,9 +37,8 @@ AppAsset::register($this);
                 ['label' => 'Главная', 'url' => ['site/index']],
                 ['label' => 'Каталог', 'url' => ['category/index']],
                 ['label' => 'Контакты', 'url' => ['site/contact']],
-                ['label' => 'Услуги', 'url' => ['site/contact']],
-                ['label' => 'Заправка', 'url' => ['site/about']],
-
+                ['label' => 'Услуги', 'url' => ['site/services']],
+                ['label' => 'Заправка', 'url' => ['site/refill']],
             ],
         ]);
         NavBar::end();
@@ -63,7 +62,7 @@ AppAsset::register($this);
                 <div class="col-md-4">
                     <div class="pull-right">
                         <p>г.Волгоград ул. Командира Рудь, 1"А", офис 415 </p>
-                        <p>тел.: +7(8442) 65-00-85, +79023625794</p>
+                        <p>тел.: +7(8442) 65-00-85, +7 902 362 5794</p>
                         <p><?= Html::a('www.volgakomarov.net', ['site/index']);?></p>
                     </div>
                     <div class="clearfix"></div>
