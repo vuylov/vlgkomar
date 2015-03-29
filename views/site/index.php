@@ -39,7 +39,7 @@ $this->title = 'Системы и ловушки для уничтожения �
             <div class="col-md-5 text-center">
                 <?= Html::img('@web/images/products/mks1025.png', ['class' => 'responsive', 'width' => '35%']);?>
                 <div>MKS 1025</div>
-                <a href="#" class="btn btn-default">Подробнее</a>
+				<?= Html::a('Подробнее', ['category/view', 'id' => 11, 'product' => 7], ['class' => 'btn btn-default']);?>
             </div>
             <div class="col-md-7">
                 <h3>ОБЩИЙ ПРНЦИП РАБОТЫ всех систем "MOSQUITO KILLING"</h3>
@@ -79,7 +79,7 @@ $this->title = 'Системы и ловушки для уничтожения �
                             </ul>
                         </div>
                         <div class="pull-right">
-                            <a href="#" class="btn btn-default">Подробнее</a>
+                            <?= Html::a('Подробнее', ['category/view', 'id' => 11, 'product' => 10], ['class' => 'btn btn-default']);?>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@ $this->title = 'Системы и ловушки для уничтожения �
                             </ul>
                         </div>
                         <div class="pull-right">
-                            <a href="#" class="btn btn-default">Подробнее</a>
+                            <?= Html::a('Подробнее', ['category/view', 'id' => 12, 'product' => 11], ['class' => 'btn btn-default']);?>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ $this->title = 'Системы и ловушки для уничтожения �
                             </ul>
                         </div>
                         <div class="pull-right">
-                            <a href="#" class="btn btn-default">Подробнее</a>
+                            <?= Html::a('Подробнее', ['category/view', 'id' => 12, 'product' => 12], ['class' => 'btn btn-default']);?>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ $this->title = 'Системы и ловушки для уничтожения �
                                 </ul>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default">Подробнее</a>
+                                <?= Html::a('Подробнее', ['category/view', 'id' => 12, 'product' => 13], ['class' => 'btn btn-default']);?>
                             </div>
                     </div>
                 </div>
