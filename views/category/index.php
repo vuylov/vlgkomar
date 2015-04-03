@@ -8,7 +8,7 @@ use yii\helpers\VarDumper;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Каталог';
+$this->title = 'Каталог средств защиты от комаров, мошки, мух и слепней';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-index">

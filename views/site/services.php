@@ -37,3 +37,7 @@ $this->title = 'Услуги компании ООО "ТД СЕРВИС"';
         </blockquote>
     </div>
 </div>
+<?php
+$this->registerMetaTag(['name' => 'keywords', 'content' => 'доставка средств защиты от комаров, монтаж средств защиты от комаров, монтаж систем MKS']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'Услуги по доставке, монтаже систем защиты от комаров, мошки, мух и слепней']);
+?>
