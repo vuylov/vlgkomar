@@ -37,6 +37,7 @@ $this->title = 'Контакты';
             <div>Телефон офиса 8 (8442) 65 00 85</div>
             <div>Адрес 400080, ул. Командира Рудь дом 1 "А" оф. 415 (рядом с налоговой инспекцией Красноармейского района)</div>
             <div><a href="/">WWW.VOLGAKOMAROV.NET</a></div>
+			<div>Email: <a href="mailto:tds-v@yandex.ru">tds-v@yandex.ru</a></div>
         </div>
     </div>
 </div>

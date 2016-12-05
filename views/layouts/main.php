@@ -49,6 +49,7 @@ AppAsset::register($this);
             <div><span class="glyphicon glyphicon-phone-alt"></span> +7(8442) 65-00-85</div>
             <div><span class="glyphicon glyphicon-earphone"></span> +7 902 362 57 94</div>
         </div>
+		<!--<div style="position:fixed;z-index:1055;text-align:center;width:100%;top: 50px;background-color: #FF4136;color: #fff;font-weight: bold;font-size: 16px;">С 18 июля по 31 августа действует сезонная скидка 30% на все товары!</div>-->
     </header>
     <div class="margin-top">
         <?= $content ?>
